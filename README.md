@@ -1,7 +1,7 @@
 # AirBnB clone - The console
 
 
-![alt tag] (https://ibb.co/ySnr6zW)
+![alt tag](https://ibb.co/ySnr6zW)
 
 In AirBnB clone: ​​the console is designed to make a clone of the airbnb platform where the user has the possibility to make a reservation of the hostel or room for the next vacation anywhere in the world. the first step is the console.
 
