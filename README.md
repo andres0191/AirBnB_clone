@@ -39,71 +39,154 @@ In our case, we want to be able to manage the **objects of our project:**
 - How to handle named arguments in a function
 
 **Concepts:**
-The Cmd class provides a simple framework for writing line-oriented command interpreters. These are often useful for test harnesses, administrative tools, and prototypes that will later be wrapped in a more sophisticated interface. A Cmd instance or subclass instance is a line-oriented interpreter framework. There is no good reason to instantiate Cmd itself; rather, it’s useful as a superclass of an interpreter class you define yourself in order to inherit Cmd‘s methods and encapsulate action methods. The optional argument completekey is the readline name of a completion key; it defaults to Tab. If completekey is not None and readline is available, command completion is done automatically. The optional arguments stdin and stdout specify the input and output file objects that the Cmd instance or subclass instance will use for input and output. If not specified, they will default to sys.stdin and sys.stdout. If you want a given stdin to be used, make sure to set the instance’s use_rawinput attribute to False, otherwise stdin will be ignored.
 
-### A Cmd instance has the following methods:
+## CMD
 
-**Cmd.cmdloop(intro=None)**
-Repeatedly issue a prompt, accept input, parse an initial prefix off the received input, and dispatch to action methods, passing them the remainder of the line as argument. The optional argument is a banner or intro string to be issued before the first prompt (this overrides the intro class attribute). If the readline module is loaded, input will automatically inherit bash-like history-list editing (e.g. Control-P scrolls back to the last command, Control-N forward to the next one, Control-F moves the cursor to the right non-destructively, Control-B moves the cursor to the left non-destructively, etc.).
+The **Cmd** class provides a simple framework for writing line-oriented command interpreters. These are often useful for test harnesses, administrative tools, and prototypes that will later be wrapped in a more sophisticated interface. A Cmd instance or subclass instance is a line-oriented interpreter framework. There is no good reason to instantiate Cmd itself; rather, it’s useful as a superclass of an interpreter class you define yourself in order to inherit Cmd‘s methods and encapsulate action methods. The optional argument completekey is the readline name of a completion key; it defaults to Tab. If completekey is not None and readline is available, command completion is done automatically. The optional arguments stdin and stdout specify the input and output file objects that the Cmd instance or subclass instance will use for input and output. If not specified, they will default to sys.stdin and sys.stdout. If you want a given stdin to be used, make sure to set the instance’s use_rawinput attribute to False, otherwise stdin will be ignored.
 
-**An end-of-file on input is passed back as the string 'EOF'.**
+## UUID
+The **UUID** provides immutable UUID objects (the UUID class) and the functions uuid1(), uuid3(), uuid4(), uuid5() for generating version 1, 3, 4, and 5 UUIDs as specified in RFC 4122. If all you want is a unique ID, you should probably call uuid1() or uuid4(). Note that uuid1() may compromise privacy since it creates a UUID containing the computer’s network address. uuid4() creates a random UUID.
 
-An interpreter instance will recognize a command name foo if and only if it has a method do_foo(). As a special case, a line beginning with the character '?' is dispatched to the method do_help(). As another special case, a line beginning with the character '!' is dispatched to the method do_shell() (if such a method is defined). This method will return when the postcmd() method returns a true value. The stop argument to postcmd() is the return value from the command’s corresponding do_*() method. If completion is enabled, completing commands will be done automatically, and completing of commands args is done by calling complete_foo() with arguments text, line, begidx, and endidx. text is the string prefix we are attempting to match: all returned matches must begin with it. line is the current input line with leading whitespace removed, begidx and endidx are the beginning and ending indexes of the prefix text, which could be used to provide different completion depending upon which position the argument is in. All subclasses of Cmd inherit a predefined do_help(). This method, called with an argument 'bar', invokes the corresponding method help_bar(), and if that is not present, prints the docstring of do_bar(), if available. With no argument, do_help() lists all available help topics (that is, all commands with corresponding help_*() methods or commands that have docstrings), and also lists any undocumented commands.
+**uuid.getnode()**
+Get the hardware address as a 48-bit positive integer. The first time this runs, it may launch a separate program, which could be quite slow. If all attempts to obtain the hardware address fail, we choose a random 48-bit number with its eighth bit set to 1 as recommended in RFC 4122. “Hardware address” means the MAC address of a network interface, and on a machine with multiple network interfaces the MAC address of any one of them may be returned.
 
-**Cmd.onecmd(str)**
-Interpret the argument as though it had been typed in response to the prompt. This may be overridden, but should not normally need to be; see the precmd() and postcmd() methods for useful execution hooks. The return value is a flag indicating whether interpretation of commands by the interpreter should stop. If there is a do_*() method for the command str, the return value of that method is returned, otherwise the return value from the default() method is returned.
+**uuid.uuid1(node=None, clock_seq=None)**
+Generate a UUID from a host ID, sequence number, and the current time. If node is not given, getnode() is used to obtain the hardware address. If clock_seq is given, it is used as the sequence number; otherwise a random 14-bit sequence number is chosen.
 
-**Cmd.emptyline()**
-Method called when an empty line is entered in response to the prompt. If this method is not overridden, it repeats the last nonempty command entered.
+**uuid.uuid3(namespace, name)**
+Generate a UUID based on the MD5 hash of a namespace identifier (which is a UUID) and a name (which is a string).
 
-**Cmd.default(line)**
-Method called on an input line when the command prefix is not recognized. If this method is not overridden, it prints an error message and returns.
+**uuid.uuid4()**
+Generate a random UUID.
 
-**Cmd.completedefault(text, line, begidx, endidx)**
-Method called to complete an input line when no command-specific complete_*() method is available. By default, it returns an empty list.
+**uuid.uuid5(namespace, name)**
+Generate a UUID based on the SHA-1 hash of a namespace identifier (which is a UUID) and a name (which is a string).
 
-**Cmd.precmd(line)**
-Hook method executed just before the command line line is interpreted, but after the input prompt is generated and issued. This method is a stub in Cmd; it exists to be overridden by subclasses. The return value is used as the command which will be executed by the onecmd() method; the precmd() implementation may re-write the command or simply return line unchanged.
+The uuid module defines the following namespace identifiers for use with **uuid3()** or **uuid5()**.
 
-**Cmd.postcmd(stop, line)**
-Hook method executed just after a command dispatch is finished. This method is a stub in Cmd; it exists to be overridden by subclasses. line is the command line which was executed, and stop is a flag which indicates whether execution will be terminated after the call to postcmd(); this will be the return value of the onecmd() method. The return value of this method will be used as the new value for the internal flag which corresponds to stop; returning false will cause interpretation to continue.
+# Magic Methods used in this proyect:
 
-**Cmd.preloop()**
-Hook method executed once when cmdloop() is called. This method is a stub in Cmd; it exists to be overridden by subclasses.
+## **__init__**
 
-**Cmd.postloop()**
-Hook method executed once when cmdloop() is about to return. This method is a stub in Cmd; it exists to be overridden by subclasses.
+The **__init__** method is a special method of a class in Python. The fundamental objective of the __init__ method is to initialize the attributes of the object we create.
 
-### Instances of Cmd subclasses have some public instance variables:
+The advantages of implementing the __init__ method instead of the initialize method are:
 
-**Cmd.prompt**
-The prompt issued to solicit input.
+The **__init__** method is the first method that is executed when an object is created.
+The **__init__** method is called automatically. In other words, it is impossible to forget to call it since it will be called automatically.
+Who uses POO in Python (Object Oriented Programming) knows the purpose of this method.
+Other features of the **__init__** method are:
 
-**Cmd.identchars**
-The string of characters accepted for the command prefix.
+It is executed immediately after creating an object.
+The **__init__** method cannot return data.
+The **__init__** method can receive parameters that are normally used to initialize attributes.
+The **__init__** method is an optional method, however it is very common to declare it.
 
-**Cmd.lastcmd**
-The last nonempty command prefix seen.
+-Example:
 
-**Cmd.cmdqueue**
-A list of queued input lines. The cmdqueue list is checked in cmdloop() when new input is needed; if it is nonempty, its elements will be processed in order, as if entered at the prompt.
+```
+class Car(object):
+  """
+    blueprint for car
+  """
 
-**Cmd.intro**
-A string to issue as an intro or banner. May be overridden by giving the cmdloop() method an argument.
+  def __init__(self, model, color, company, speed_limit):
+    self.color = color
+    self.company = company
+    self.speed_limit = speed_limit
+    self.model = model
 
-**Cmd.doc_header**
-The header to issue if the help output has a section for documented commands.
+  def start(self):
+    print("started")
 
-**Cmd.misc_header**
-The header to issue if the help output has a section for miscellaneous help topics (that is, there are help_*() methods without corresponding do_*() methods).
+  def stop(self):
+    print("stopped")
 
-**Cmd.undoc_header**
-The header to issue if the help output has a section for undocumented commands (that is, there are do_*() methods without corresponding help_*() methods).
+  def accelarate(self):
+    print("accelarating...")
+    "accelarator functionality here"
 
-**Cmd.ruler**
-The character used to draw separator lines under the help-message headers. If empty, no ruler line is drawn. It defaults to '='.
+  def change_gear(self, gear_type):
+    print("gear changed")
+    " gear related functionality here"
+```
 
-**Cmd.use_rawinput**
-A flag, defaulting to true. If true, cmdloop() uses input() to display a prompt and read the next command; if false, sys.stdout.write() and sys.stdin.readline() are used. (This means that by importing readline, on systems that support it, the interpreter will automatically support Emacs-like line editing and command-history keystrokes.)
+## **__str__**
 
+**__str__** is the function built into python, used to represent strings of objects. **__repr__** is another built-in that is similar to **__str__**. ... That method returns a printable string that represents that object, that is, what you will get when you print that object.
 
+-Example:
+
+```
+class Foo():
+    def __init__(self):
+        self.l = [{"Susan": ("Boyle", 50, "alive")}, {"Albert": ("Speer", 106, "dead")}]
+    def __str__(self):
+        ret_str = ""
+        for d in self.l:
+            for k in d:
+                ret_str += "".join([k, " ", d[k][0], " is ", str(d[k][1]), " and ", d[k][2], ". "])
+        return ret_str
+ 
+foo = Foo()
+print (foo)
+```
+## ARGS, KWARGS
+
+***args** and ****kwargs** are mostly used in function definitions. ***args** and ****kwargs** allow you to pass a variable number of arguments to a function. What does variable mean here is that you do not know before hand that how many arguments can be passed to your function by the user so in this case you use these two keywords. ***args** is used to send a non-keyworded variable length argument list to the function. Here’s an example to help you get a clear idea:
+
+-Example:
+
+```
+def test_var_args(f_arg, *argv):
+    print "first normal arg:", f_arg
+    for arg in argv:
+        print "another arg through *argv :", arg
+
+test_var_args('yasoob','python','eggs','test')
+```
+
+This produces the following result:
+
+```
+first normal arg: yasoob
+another arg through *argv : python
+another arg through *argv : eggs
+another arg through *argv : test
+```
+
+Our CMD is configured to recognize commands such as show, create, destroy, update, all and execute each of these commands respectively
+
+**show:** Prints the string representation of an instance based on the class name and id. 
+-Example:
+```
+$ show BaseModel 1234-1234-1234.
+```
+
+**create:** Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+-Example:
+```
+$ create BaseModel
+```
+
+**destroy:** Deletes an instance based on the class name and id (save the change into the JSON file).
+-Example:
+```
+$ destroy BaseModel 1234-1234-1234.
+```
+
+**update:** Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+-Example:
+```
+$ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com".
+```
+
+**all:** Prints all string representation of all instances based or not on the class name.
+-Example:
+```
+$ all BaseModel or $ all.
+```
+
+**Authors:** 
+-JOSE DIAZ [GitHub Perfil](https://github.com/jhosep7).
+-ANDRES F. GARCIA R. [GitHub Perfil](https://github.com/andres0191).
