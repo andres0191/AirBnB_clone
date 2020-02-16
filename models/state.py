@@ -2,7 +2,9 @@
 from models.base_model import BaseModel
 
 
-class State(BaseModels):
+class State(BaseModel):
+
+    name = ''
+
     def __init__(self, *args, **kwargs):
-        name = ''
-        pass
+        super().__init__(self, *args, **kwargs)
