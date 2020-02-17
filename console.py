@@ -26,6 +26,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
         else:
             print("** class doesn't exist **")
+
     def do_show(self, line):
         print(line)
         if len(line) == 0:
