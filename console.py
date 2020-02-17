@@ -28,18 +28,42 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
-        print(line)
         if len(line) == 0:
             print("**  class name missing **")
+            return
         objects = storage.all()
         line = line.split(" ")
+        if len(line) < 2:
+            print("** class doesn't exist **")
+            return
         for key, value in objects.items():
             delim = key.split(".")
             if line[0] == delim[0] and line[1] == delim[1]:
                 print(value)
                 return
-            else:
-                print("** class doesn't exist **")
+        print("** class doesn't exist **")
+        return
+
+    def do_destroy(self, line):
+        pass
+        
+    def do_all(self, line):
+        if line not in globals():
+            print("** class doesn't exist **")
+            return
+        if len(line) > 0:
+            if line in globals():
+                objects = storage.all()
+            for key, value in objects.items():
+                delim = key.split(".")
+                if line == delim[0]:
+                    print(value)
+        else:
+            obj = storage.all()
+            for key, value in obj.items():
+                print(value)
+        
+
     
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
