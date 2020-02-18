@@ -43,17 +43,14 @@ class HBNBCommand(cmd.Cmd):
         """Creates new BaseModel's instance, saves to JSON file) N prints id.
 Ex: $ create BaseModel
         """
-        print(line)
-        if len(line) == 0:
-            print("**  class name missing **")
-            return
-        if line in globals():
-            instance = globals()[line]
-            new_object = instance()
-            print(new_object.id)
-            storage.save()
-        else:
+        if line is None or line == '':
+            print("** class name missing **")
+        elif line not in self.ClassGroup:
             print("** class doesn't exist **")
+        else:
+            Instance = self.ClassGroup[line]()
+            Instance.save()
+            print(Instance.id)
 
     def do_show(self, line):
         """ Prints string repr. of instance based on class name-id.
