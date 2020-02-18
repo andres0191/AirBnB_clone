@@ -95,7 +95,5 @@ class HBNBCommand(cmd.Cmd):
             for key, value in obj.items():
                 print(value)
 
-
-
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
