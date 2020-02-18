@@ -33,7 +33,7 @@ class BaseModel:
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__>"""
         MyClass = self.__class__.__name__
-        MyPrint = ("[{}] ({}) {}".format(MyClass, self.id, self.__dict__))
+        MyPrint = ("[{0}] ({1}) {2}".format(MyClass, self.id, self.__dict__))
         return (MyPrint)
 
     def save(self):
