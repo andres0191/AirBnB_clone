@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""json data format
+"""
 import models
 import json
 
@@ -8,7 +9,7 @@ class FileStorage:
     """ serializes instances to a JSON file and
         deserializes JSON file to instances
     """
-    __file_path = 'file.json'
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -19,7 +20,8 @@ class FileStorage:
         """ sets in __objects the obj with
             key <obj class name>.id
         """
-        self.__objects["{}.{}".format(str(type(obj).__name__), obj.id)] = obj
+        K = "{}.{}".format(type(obj).__name__, obj.id)
+        self.__objects[K] = obj
 
     def save(self):
         """Serialize __objects to Json File
@@ -35,8 +37,8 @@ class FileStorage:
         """
         try:
             with open(self.__file_path, encoding='UTF-8') as TheFile:
-                obj = json.load(TheFile)
-            for K, V in obj.items():
+                objs = json.load(TheFile)
+            for K, V in objs.items():
                 self.__objects[K] = models.ClassGroup[V["__class__"]](**V)
         except:
             pass
