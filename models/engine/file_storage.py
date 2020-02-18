@@ -40,5 +40,5 @@ class FileStorage:
                 objs = json.load(TheFile)
             for K, V in objs.items():
                 self.__objects[K] = models.ClassGroup[V["__class__"]](**V)
-        except:
+        except FileNotFoundError:
             pass
