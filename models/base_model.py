@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+BaseModel module have
+class: BaseModel
+def to_json(self)
+"""
 import uuid
 import datetime
 import models
