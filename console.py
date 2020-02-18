@@ -21,6 +21,7 @@ class HBNBCommand(cmd.Cmd):
     ClassGroup = {"BaseModel": BaseModel, "User": User,
                   "State": State, "City": City, "Place": Place,
                   "Amenity": Amenity, "Review": Review}
+
     def do_EOF(self, line):
         """EOF command End Of File character """
         print()
