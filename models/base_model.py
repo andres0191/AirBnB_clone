@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+BaseModel module have
+class: BaseModel
+def to_json(self)
+"""
 import uuid
 import datetime
 import models
@@ -20,7 +25,7 @@ class BaseModel:
         if kwargs != {} and kwargs is not None:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    value = (atetime.datetime.strptime(
+                    value = (datetime.datetime.strptime(
                                 value, "%Y-%m-%dT%H:%M:%S.%f"))
                 if key != "__class__":
                     setattr(self, key, value)
@@ -33,7 +38,7 @@ class BaseModel:
     def __str__(self):
         """ should print: [<class name>] (<self.id>) <self.__dict__>"""
         MyClass = self.__class__.__name__
-        MyPrint = ("[{}] ({}) {}".format(MyClass, self.id, self.__dict__))
+        MyPrint = ("[{0}] ({1}) {2}".format(MyClass, self.id, self.__dict__))
         return (MyPrint)
 
     def save(self):
