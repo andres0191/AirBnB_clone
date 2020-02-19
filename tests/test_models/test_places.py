@@ -22,10 +22,12 @@ class Testreview(unittest.TestCase):
                     "Found code style errors (and warnings)."))
 
     def test_class(self):
+        """test class"""
         rev1 = Review()
         self.assertEqual(rev1.__class__.__name__, "Review")
 
     def test_father(self):
+        """test father"""
         rev1 = Review()
         self.assertTrue(issubclass(rev1.__class__, BaseModel))
 

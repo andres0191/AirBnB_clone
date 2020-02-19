@@ -20,10 +20,12 @@ class Testamenity(unittest.TestCase):
                     "Found code style errors (and warnings)."))
 
     def test_class(self):
+        """test class"""
         amenity1 = Amenity()
         self.assertEqual(amenity1.__class__.__name__, "Amenity")
 
     def test_father(self):
+        """test father"""
         amenity1 = Amenity()
         self.assertTrue(issubclass(amenity1.__class__, BaseModel))
 
