@@ -21,9 +21,9 @@ def test_pep8_conformance_user(self):
 
 class Testuser(unittest.TestCase):
     """test class user"""
-
     @classmethod
     def setUpClass(cls):
+        """class method"""
         cls.my_user = User()
         cls.my_user.first_name = 'Holberton'
         cls.my_user.last_name = 'School'
@@ -54,6 +54,7 @@ class Testuser(unittest.TestCase):
         self.assertEqual('to_dict' in dir(self.my_user), True)
 
     def test_attr(self):
+        """Check Attributes"""
         self.assertTrue('email' in self.my_user.__dict__)
         self.assertTrue('id' in self.my_user.__dict__)
         self.assertTrue('created_at' in self.my_user.__dict__)
@@ -61,3 +62,7 @@ class Testuser(unittest.TestCase):
         self.assertTrue('password' in self.my_user.__dict__)
         self.assertTrue('first_name' in self.my_user.__dict__)
         self.assertTrue('last_name' in self.my_user.__dict__)
+
+
+if __name__ == "__main__":
+    unittest.main()
