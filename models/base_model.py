@@ -57,3 +57,7 @@ class BaseModel:
         Dict['created_at'] = self.created_at.isoformat()
         Dict['updated_at'] = self.updated_at.isoformat()
         return (Dict)
+
+    def delete(self):
+        """Method to deletes an instance based on the class name"""
+        models.storage.delete(self)
