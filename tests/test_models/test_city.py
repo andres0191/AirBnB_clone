@@ -8,6 +8,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.state import State
 from models.review import Review
+from models.user import User
 
 
 class Testcity(unittest.TestCase):
@@ -28,3 +29,12 @@ class Testcity(unittest.TestCase):
         """ test father """
         city1 = City()
         self.assertTrue(issubclass(city1.__class__, BaseModel))
+
+    def test_city(self):
+        """Test attributes of Class City"""
+        my_city = City()
+        my_state = State()
+        my_city.name = "Medellin"
+        my_city.state_id = my_state.id
+        self.assertEqual(my_city.name, 'Medellin')
+        self.assertEqual(my_city.state_id, my_state.id)
