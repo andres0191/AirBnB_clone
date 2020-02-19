@@ -1,37 +1,20 @@
 #!/usr/bin/python3
-"""Test City"""
+"""Test Citty"""
 import unittest
 import pep8
-from models.base_model import BaseModel
 from models.city import City
-from models.place import Place
-from models.amenity import Amenity
 from models.state import State
-from models.review import Review
-from models.user import User
-
-
 class Testcity(unittest.TestCase):
-    """test class city"""
+    """Teste city"""
+
     def test_pep8_conformance_city(self):
         """Test that we conform to PEP8."""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/city.py'])
-        self.assertEqual(result.total_errors, 0, (
-            "Found code style errors (and warnings)."))
-
-    def test_class(self):
-        """ test class"""
-        city1 = City()
-        self.assertEqual(city1.__class__.__name__, "City")
-
-    def test_father(self):
-        """ test father """
-        city1 = City()
-        self.assertTrue(issubclass(city1.__class__, BaseModel))
+        self.assertEqual(result.total_errors, 0, "Found code style errors")
 
     def test_city(self):
-        """Test attributes of Class City"""
+        """ Test attributes of Class City"""
         my_city = City()
         my_state = State()
         my_city.name = "Medellin"
