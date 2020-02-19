@@ -53,15 +53,11 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_docstring(self):
-        """
-        Test docstring
-        """
+        """Test docstring"""
         self.assertIsNotNone(FileStorage.__doc__)
 
     def test_documentation(self):
-        """
-        Test documentation, created and not empty
-        """
+        """Test documentation, created and not empty"""
         self.assertTrue(FileStorage.all.__doc__)
         self.assertIsNotNone(FileStorage.all.__doc__)
         self.assertTrue(FileStorage.new.__doc__)
