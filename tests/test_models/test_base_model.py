@@ -6,6 +6,7 @@ on which this module should not be expected to fail,
 and cases on which it is expected to fail.
 """
 
+
 from datetime import datetime
 from models.base_model import BaseModel
 from models.city import City
@@ -219,6 +220,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.base.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base_dict['created_at'], str)
         self.assertIsInstance(base_dict['updated_at'], str)
+
 
 if __name__ == "__main__":
     unittest.main()
