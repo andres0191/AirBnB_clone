@@ -135,6 +135,58 @@ Ex: $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
                     V.save()
             if InstanceCheck is False:
                 print("** no instance found **")
+    def strip_clean(self, line):
+        """strips the args and return string
+        """
+        MyList = []
+        MyList.append(line[0])
+        try:
+            Dict = eval(
+                line[1][line[1].find('{'):line[1].find('}')+1])
+        except Exception:
+            Dict = None
+        if isinstance(Dict, dict):
+            String = line[1][line[1].find('(')+1:line[1].find(')')]
+            MyList.append(((String.split(", "))[0]).strip('"'))
+            MyList.append(Dict)
+            return MyList
+        String = line[1][line[1].find('(')+1:line[1].find(')')]
+        MyList.append(" ".join(String.split(", ")))
+        return " ".join(i for i in MyList)
+
+    def default(self, line):
+        """retrieve all instances of a class and
+        retrieve the number of instances
+        """
+        count = 0
+        MyList = line.split('.')
+        if len(MyList) >= 2:
+            if MyList[1] == "all()":
+                self.do_all(MyList[0])
+            elif MyList[0]in self.ClassGroup and MyList[1] == "count()":
+                if (MyList[0] not in self.ClassGroup):
+                    print("** class doesn't exist **")
+                    return (False)
+                else:
+                    for key in models.storage.all():
+                        if key.startswith(MyList[0]):
+                            count += 1
+                    print(count)
+            elif MyList[1][:4] == "show":
+                self.do_show(self.strip_clean(MyList))
+            elif MyList[1][:7] == "destroy":
+                self.do_destroy(self.strip_clean(MyList))
+            elif MyList[1][:6] == "update":
+                Args = self.strip_clean(MyList)
+                if isinstance(Args, list):
+                    obj = storage.all()
+                    key = Args[0] + ' ' + Args[1]
+                    for k, v in Args[2].items():
+                        self.do_update(key + ' "{}" "{}"'.format(k, v))
+                else:
+                    self.do_update(Args)
+        else:
+            cmd.Cmd.default(self, line)
 
 
 if __name__ == "__main__":
