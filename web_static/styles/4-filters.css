@@ -1,0 +1,25 @@
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    position: inherit;
+
+}
+
+.firstbutton {
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: #FFFFFF;
+    text-align: center;
+    height: 48px;
+    width: 20%;
+    border-radius: 4px;
+    left: 750px;
+    position: relative;
+    top: 10px;
+    opacity: 90%;
+    
+
+}
