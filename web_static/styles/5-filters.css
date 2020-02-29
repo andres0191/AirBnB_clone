@@ -24,6 +24,7 @@
 .firstbutton:hover {
     opacity: 90%;
 }
+
 .locations {
     height: 100%;
     width: 25%;
@@ -32,12 +33,14 @@
     float: left;
     position: relative;
 }
+
 .locations h3, .amenities h3 {
     font-weight: 600;
     margin: inherit;
     margin-top: 15px;
     margin-left: 45px;
 }
+
 .locations h4, .amenities h4{
     font-weight: 400;
     font-size: 14px;
@@ -52,5 +55,4 @@
     margin: 0;
     float: left;
     position: relative;
-    
 }
