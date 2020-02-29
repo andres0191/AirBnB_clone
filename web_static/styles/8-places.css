@@ -30,12 +30,12 @@
      min-width: 60px;
      font-size: 30px;
      border-radius: 50%;
-     width: 100px;
-     height: 100px;
+     width: 90px;
+     height: 90px;
      position: relative;
      margin-bottom: 30px;
-     margin-top: -100px;
-     margin-left: 292px;
+     margin-top: -90px;
+     margin-left: 280px;
      color: #FF5A5F;
  }
 
@@ -50,6 +50,7 @@
      border-right: 0px #DDDDDD;
      border-style: solid;
      width: 100%;
+     margin-bottom: 20px;
  }
 
  .information_bath {
@@ -116,5 +117,5 @@
  }
 
  .information p {
-     width: 80px;
+     width: 90px;
  }
