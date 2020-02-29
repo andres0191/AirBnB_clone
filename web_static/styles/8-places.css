@@ -1,6 +1,6 @@
 .places {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-flow: row wrap;
 }
 .places h1 {
@@ -23,17 +23,98 @@
     text-align: center;
 }
  .price_by_night {
-     background-color: #FF5A5F solid;
-     border: 4px #FF5A5F ;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border: 5px #FF5A5F solid;
      min-width: 60px;
-     height: 60px;
      font-size: 30px;
      border-radius: 50%;
+     width: 100px;
+     height: 100px;
+     position: relative;
+     margin-bottom: 30px;
+     margin-top: -100px;
+     margin-left: 292px;
+     color: #FF5A5F;
  }
 
  .information {
-     height: 80;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 80px;
      border-top: 1px #DDDDDD;
      border-bottom: 1px #DDDDDD;
+     border-left: 0px #DDDDDD;
+     border-right: 0px #DDDDDD;
+     border-style: solid;
+     width: 100%;
+ }
 
+ .information_bath {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/icon_bath.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-left: 80px;
+ }
+
+ .information_bed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/icon_bed.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-left: 80px;
+ }
+
+ .information_group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/icon_group.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-left: 10px;
+
+ }
+
+ .max_gest {
+     margin-bottom: 5px;
+     margin-top: 75px;
+     margin-left: 5px;
+     width: 100px;
+
+ }
+
+ .number_rooms {
+     width: 100px;
+     margin-bottom: 5px;
+     margin-top: 75px;
+     margin-left: 5px;
+ }
+
+ .number_bathrooms {
+     width: 100px;
+     margin-bottom: 5px;
+     margin-top: 75px;
+     margin-left: 5px;
+ }
+
+ .information p {
+     width: 80px;
  }
