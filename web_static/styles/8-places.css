@@ -1,73 +1,154 @@
+/*The .class selector selects elements with a specific class attribute.
+To select elements with a specific class, write a period (.) character, followed by the name of the class.
+You can also specify that only specific HTML elements should be affected by a class. To do this, start with
+the element name, then write the period (.) character, followed by the name of the class (look at Example 1 below).
+HTML elements can also refer to more than one class (look at Example 2 below).
+
+Example:
+Select and style all elements with class="intro":
+
+.intro {
+  background-color: yellow;
+}
+*/
+
 .places {
     display: flex;
+    /*The flex container becomes flexible by setting the display property to flex*/
     justify-content: center;
+    /*The justify-content property aligns the flexible container's items when the
+    items do not use all available space on the main-axis (horizontally).*/
     flex-flow: row wrap;
+    /*The flex-flow property is a shorthand property for:
+    flex-direction
+    flex-wrap : The flex-wrap property specifies whether the flexible items should wrap or not.*/
 }
+
 .places h1 {
     font-size: 30px;
+    /*The font-size property sets the size of a font.
+    */
     padding-top: 20px;
+    /*CSS has properties for specifying the padding for each side of an element:
+    padding-top
+    padding-right
+    padding-bottom
+    padding-left
+    All the padding properties can have the following values:
+    length - specifies a padding in px, pt, cm, etc.
+    % - specifies a padding in % of the width of the containing element
+    inherit - specifies that the padding should be inherited from the parent element
+    */
     padding-left: 15px;
     width: 100%;
+    /*The width property sets the width of an element.
+    The width of an element does not include padding, borders, or margins!
+    */
 }
 
 .places article {
     width: 390px;
     padding: 20px;
     margin: 20px;
+    /*
+    CSS has properties for specifying the margin for each side of an element:
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left
+    All the margin properties can have the following values:
+    auto - the browser calculates the margin
+    length - specifies a margin in px, pt, cm, etc.
+    % - specifies a margin in % of the width of the containing element
+    inherit - specifies that the margin should be inherited from the parent element
+    */
     border: 1px #FF5A5F solid;
     border-radius: 4px;
+    /*The border-radius property defines the radius of the element's corners.
+    Tip: This property allows you to add rounded corners to elements!
+    This property can have from one to four values. Here are the rules:
+    Four values - border-radius: 15px 50px 30px 5px; (first value applies to top-left corner,
+    second value applies to top-right corner, third value applies to bottom-right corner, and
+    fourth value applies to bottom-left corner)
+    One value - border-radius: #px; (the value applies to all four corners, which are rounded equally.
+    */
 }
 
 .places h2 {
     font-size: 30px;
     text-align: center;
+    /*The text-align property specifies the horizontal alignment of text in an element.
+    */
 }
- .price_by_night {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border: 5px #FF5A5F solid;
-     min-width: 60px;
-     font-size: 30px;
-     border-radius: 50%;
-     width: 90px;
-     height: 90px;
-     position: relative;
-     margin-bottom: 30px;
-     margin-top: -90px;
-     margin-left: 280px;
-     color: #FF5A5F;
- }
 
- .information {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 80px;
-     border-top: 1px #DDDDDD;
-     border-bottom: 1px #DDDDDD;
-     border-left: 0px #DDDDDD;
-     border-right: 0px #DDDDDD;
-     border-style: solid;
-     width: 100%;
-     margin-bottom: 20px;
- }
+.price_by_night {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*The align-items property specifies the default alignment for items inside the flexible container.
+    */
+    border: 5px #FF5A5F solid;
+    min-width: 60px;
+    /*The min-width property defines the minimum width of an element.
+    If the content is smaller than the minimum width, the minimum width will be applied.
+    If the content is larger than the minimum width, the min-width property has no effect.
+    */
+    font-size: 30px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    /*The height property sets the height of an element.
+    The height of an element does not include padding, borders, or margins!
+    If height: auto; the element will automatically adjust its height to allow its content
+    to be displayed correctly. If height is set to a numeric value (like pixels, (r)em,
+    percentages) then if the content does not fit within the specified height, it will overflow.
+    How the container will handle the overflowing content is defined by the
+    overflow property.
+    */
+    position: relative;
+    /*
+    The position property specifies the type of positioning method used for an element
+    (static, relative, absolute, fixed, or sticky).
+    */
+    margin-bottom: 30px;
+    margin-top: -90px;
+    margin-left: 280px;
+    color: #FF5A5F;
+}
 
- .information_bath {
+.information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    border-top: 1px #DDDDDD;
+    border-bottom: 1px #DDDDDD;
+    border-left: 0px #DDDDDD;
+    border-right: 0px #DDDDDD;
+    border-style: solid;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.information_bath {
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url(../images/icon_bath.png);
+    /*The background-image property sets one or more background images for an element.
+    */
     background-repeat: no-repeat;
+    /*The background-repeat property sets if/how a background image will be repeated.
+    */
     width: 50px;
     height: 50px;
     position: relative;
     margin-bottom: 50px;
     margin-top: 30px;
     margin-left: 80px;
- }
+}
 
- .information_bed {
+.information_bed {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,9 +159,9 @@
     margin-bottom: 50px;
     margin-top: 30px;
     margin-left: 80px;
- }
+}
 
- .information_group {
+.information_group {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,31 +172,29 @@
     margin-bottom: 50px;
     margin-top: 30px;
     margin-left: 10px;
+}
 
- }
+.max_gest {
+    margin-bottom: 5px;
+    margin-top: 75px;
+    margin-left: 5px;
+    width: 100px;
+}
 
- .max_gest {
-     margin-bottom: 5px;
-     margin-top: 75px;
-     margin-left: 5px;
-     width: 100px;
+.number_rooms {
+    width: 100px;
+    margin-bottom: 5px;
+    margin-top: 75px;
+    margin-left: 5px;
+}
 
- }
+.number_bathrooms {
+    width: 100px;
+    margin-bottom: 5px;
+    margin-top: 75px;
+    margin-left: 5px;
+}
 
- .number_rooms {
-     width: 100px;
-     margin-bottom: 5px;
-     margin-top: 75px;
-     margin-left: 5px;
- }
-
- .number_bathrooms {
-     width: 100px;
-     margin-bottom: 5px;
-     margin-top: 75px;
-     margin-left: 5px;
- }
-
- .information p {
-     width: 90px;
- }
+.information p {
+    width: 90px;
+}

@@ -1,27 +1,58 @@
 <!DOCTYPE html>
+<!--Tag that does not need closing and its function is to provide information to the web server that hosts pages
+The information provided by this label refers to the type of document, it is also necessary for the
+communication between the browser and the server-->
 <html lang="en">
+<!--HTML = This is an even tag and is the tag that encloses the entire html document,
+HTML stands for HyperText Markup Language-->
 <head>
+<!--Head is an even label, defines the head of the document and saves information about it
+(metadata, scripts, styles, location of style documents, title of the page among other data)-->
     <link rel="icon" href="styles/images/icon.png" />
+    <!--import image since toher folder-->
     <link rel="stylesheet" type="text/css" href="styles/4-common.css">
+    <!--import css style since toher folder-->
     <link rel="stylesheet" type="text/css" href="styles/3-footer.css">
     <link rel="stylesheet" type="text/css" href="styles/3-header.css">
     <link rel="stylesheet" type="text/css" href="styles/6-filters.css">
     <link rel="stylesheet" type="text/css" href="styles/8-places.css">
     <meta charset="UTF-8">
+    <!--UTF-8 (8-bit Unicode Transformation Format) es un formato de codificación de caracteres Unicode
+    e ISO 10646 que utiliza símbolos de longitud variable. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AirBnB Clone</title>
+    <!--Name of the page that It is displayed in the browser bar-->
 </head>
 <body>
+<!--Body is an even tag and we know it as the body of the website. Everything that is written inside
+of this tag will be visible by browsers-->
     <header><div class='image'></div></header>
+    <!--call class image that are in css folder-->
     <div class="container">
+    <!--div of "division" -division. It is used to create sections or group content.
+    Its tags are: <div> and </div> (both mandatory).
+    It is defined as: Block element.
+    Create a box: In block.
+    It can contain: Text, and / or zero or more elements in block or online.-->
         <section class='filters'>
+        <!--The <section> tag defines sections in a document, such as chapters, headers,
+        footers, or any other sections of the document.-->
             <div class="locations">
                 <h3>States</h3>
+                <!--In this page Attributes Examples About Accessibility specs Browser Compatibility See also
+                Header elements implement six document header levels, <h1> is the most important, and <h6>, the
+                least important. A heading element briefly describes the topic of the section it presents. Header
+                information can be used by user agents, for example, to build a table of contents for a document
+                automatically.-->
                 <h4>California, Arizona...</h4>
                 <div class="popover">
                     <h2>Arizona:</h2>
                     <ul>
+                    <!--The <ul> tag defines a messy list (with bullets).
+                    Use the <ul> tag along with the <li> tag to create messy lists.-->
                         <li>Cap</li>
+                        <!--The <li> tag defines a list item.
+                        The <li> tag is used in ordered lists(<ol>), unordered lists (<ul>), and in menu lists (<menu>).-->
                         <li>Spiderman</li>
                     </ul>
                     <h2>California:</h2>
@@ -48,6 +79,14 @@
         <section class="places">
             <h1>Places</h1>
             <article>
+            <!--The <article> tag specifies independent and autonomous content.
+            An article should make sense on its own and it should be possible to distribute it
+            independently of the rest of the site.
+            Potential sources for the <article> element:
+            *   Forum post
+            *   Blog post
+            *   News
+            *   Commentary-->
                 <h2>My home</h2>
                 <div class="price_by_night">$80</div>
                 <div class="information">
@@ -68,9 +107,19 @@
                     </div>
                 </div>
                 <b>Owner: </b><a>John Lenon</a>
+                <!--The <b> tag is for bold text-->
+                <!--The <a> tag defines a hyperlink, which is used to link from one page to another.
+                The most important attribute of the <a> element is the href attribute, which indicates the link's destination.
+                By default, links will appear as follows in all browsers:
+                An unvisited link is underlined and blue
+                A visited link is underlined and purple
+                An active link is underlined and red-->
                 <p>This is a lovely 1 bedroom and 1 bathroom apartment that can accommodate
                     2 people. It locates at the center of Shanghai and next to subway line 1,
                     1 stop to people Square, 2 stops to Bund, 3 stops to Jinglan Temple</p>
+                    <!--The <p> tag defines a paragraph.
+                    Browsers automatically add some space (margin) before and after each <p> element.
+                    The margins can be modified with CSS (with the margin properties).-->
             </article>
             <article><h2>Tiny house</h2>
                 <div class="price_by_night">$110</div>
@@ -128,5 +177,15 @@
         </section>
     </div>
     <footer><div class="txt">Holberton School</div></footer>
+    <!--The <footer> tag defines a footer for a document or section.
+    A <footer> element should contain information about its containing element.
+    A <footer> element typically contains:
+    *   authorship information
+    *   copyright information
+    *   contact information
+    *   sitemap
+    *   back to top links
+    *   related documents
+    *   You can have several <footer> elements in one document.-->
 </body>
 </html>
